@@ -1,0 +1,29 @@
+<mat-card>
+    <form action="" class="post-form">
+        <!-- <div>
+            <input matInput [(ngModel)]="fileAttr" readonly name="name" />
+            <button mat-flat-button color="primary">Browse File</button>
+            <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" multiple="multiple" accept="image/*">
+
+        </div> -->
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput type="text"/>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput type="text"/>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select>
+              <mat-option value="craft">Craft</mat-option>
+              <mat-option value="publish">Publish</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <quill-editor [styles]="{height: '320px'}"></quill-editor>        
+        <div class="submit-button">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+    </form>
+</mat-card>

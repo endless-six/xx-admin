@@ -1,0 +1,84 @@
+<mat-card>
+    <mat-vertical-stepper linear="true" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Basic Info</ng-template>
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                  <mat-option *ngFor="let item of categories" [value]="item.value">
+                    {{item.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Sku</mat-label>
+              <input matInput placeholder="eg. Ig-20010304" formControlName="title" required>
+            </mat-form-field>
+              
+              <div>
+                <mat-form-field>
+                    <mat-label>Make</mat-label>
+                    <input matInput placeholder="eg. Ig-20010304" formControlName="make" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Car</mat-label>
+                    <input matInput placeholder="eg. Ig-20010304" formControlName="car" required>
+                  </mat-form-field>
+              </div>
+              <mat-form-field>
+                <mat-label>OEM No.</mat-label>
+                <textarea matInput placeholder="eg. Ig-20010304" formControlName="oem" required></textarea>
+              </mat-form-field>
+              
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Transaction Info</ng-template>
+            <mat-form-field>
+              <mat-label>Price</mat-label>
+              <input matInput formControlName="secondCtrl" type="number" placeholder="RMB"
+                     required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>MOQ</mat-label>
+              <input matInput formControlName="secondCtrl" type="number"
+                     required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Stock</mat-label>
+                <input matInput formControlName="secondCtrl" type="number">
+              </mat-form-field>
+            <div>
+                <mat-form-field>
+                    <mat-label>Size</mat-label>
+                    <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                           required>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Weight</mat-label>
+                    <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                           required>
+                  </mat-form-field>
+            </div>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>    
+</mat-card>
+  
